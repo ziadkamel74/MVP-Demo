@@ -10,7 +10,7 @@
         <!--To Do ListVC-->
         <scene sceneID="6QD-ah-ejZ">
             <objects>
-                <viewController storyboardIdentifier="ToDoListVC" id="xko-eu-rsM" customClass="ToDoListVC" customModule="TODOApp_MVC_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ToDoListVC" id="xko-eu-rsM" customClass="ToDoListVC" customModule="TODOApp_MVP_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dah-yt-EtK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,10 +37,10 @@
             </objects>
             <point key="canvasLocation" x="42" y="98"/>
         </scene>
-        <!--Profile TableVC-->
+        <!--ProfileVC-->
         <scene sceneID="ETX-7O-OAv">
             <objects>
-                <tableViewController storyboardIdentifier="ProfileTableVC" id="1zE-Wq-j6R" customClass="ProfileTableVC" customModule="TODOApp_MVC_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ProfileVC" id="1zE-Wq-j6R" customClass="ProfileVC" customModule="TODOApp_MVP_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QCn-84-gJD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

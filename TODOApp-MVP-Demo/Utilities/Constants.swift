@@ -21,7 +21,6 @@ struct ViewControllers {
     static let signInVC = "SignInVC"
     static let toDoListVC = "ToDoListVC"
     static let profileVC = "ProfileVC"
-    static let profileTableVC = "ProfileTableVC"
 }
 
 // Urls

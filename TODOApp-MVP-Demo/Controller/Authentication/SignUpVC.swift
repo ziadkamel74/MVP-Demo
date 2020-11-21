@@ -17,12 +17,12 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var ageTextField: UITextField!
     
     // MARK:- Properties
-    var presenter: SignUpVCPresenter!
+    var presenter: SignUpPresenter!
     
     // MARK:- Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = SignUpVCPresenter(view: self)
+        presenter = SignUpPresenter(view: self)
     }
     
     // MARK:- UIKit Methods
@@ -38,7 +38,7 @@ class SignUpVC: UIViewController {
     
     // MARK:- IBAction Methods
     @IBAction func registerBtnPressed(_ sender: UIButton) {
-        presenter.validAndRegister(name: nameTextField.text, email: emailTextField.text, password: passwordTextField.text, age: ageTextField.text)
+        presenter.tryToRegister(name: nameTextField.text, email: emailTextField.text, password: passwordTextField.text, age: ageTextField.text)
     }
 }
 

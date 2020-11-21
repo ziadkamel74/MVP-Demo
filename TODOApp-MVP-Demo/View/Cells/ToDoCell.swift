@@ -8,15 +8,26 @@
 
 import UIKit
 
+protocol DeleteTask: ToDoListVC {
+    func deleteTapped(sender: UIButton)
+}
+
 class ToDoCell: UITableViewCell {
     
     // MARK:- Outlets
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var deleteButton: UIButton!
     
-    // MARK:- Internal Functions
+    // MARK:- Properties
+    weak var deletion: DeleteTask?
+    
+    // MARK:- Internal Methods
     func configure(description: String) {
         descriptionLabel.text = description
+    }
+    
+    // MARK:- IBAction Methods
+    @IBAction func deleteBtnPressed(_ sender: UIButton) {
+        deletion?.deleteTapped(sender: sender)
     }
     
 }

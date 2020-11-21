@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9913BBAC255E84F0000A17DD /* SignUpVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9913BBAB255E84F0000A17DD /* SignUpVCPresenter.swift */; };
+		9913BBAC255E84F0000A17DD /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9913BBAB255E84F0000A17DD /* SignUpPresenter.swift */; };
 		9932E6D12553488C00392AC9 /* String+Trimming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9932E6D02553488C00392AC9 /* String+Trimming.swift */; };
 		9932E6D4255349A600392AC9 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9932E6D2255349A600392AC9 /* ToDoCell.swift */; };
 		9932E6D5255349A600392AC9 /* ToDoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9932E6D3255349A600392AC9 /* ToDoCell.xib */; };
 		9932E6D8255358C100392AC9 /* UIView+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9932E6D7255358C100392AC9 /* UIView+Loader.swift */; };
+		996C94832568C627005742C1 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996C94822568C627005742C1 /* SignInPresenter.swift */; };
+		996C94852568C7A9005742C1 /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996C94842568C7A9005742C1 /* ValidationManager.swift */; };
+		996C948A2568EC1E005742C1 /* ToDoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996C94892568EC1E005742C1 /* ToDoListPresenter.swift */; };
+		996C948C256909B9005742C1 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996C948B256909B9005742C1 /* ProfilePresenter.swift */; };
 		997B1D89254D207E002BCC7A /* UIViewController+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B1D88254D207E002BCC7A /* UIViewController+ShowAlert.swift */; };
 		997B1D8B254D21D0002BCC7A /* String+ValidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B1D8A254D21D0002BCC7A /* String+ValidData.swift */; };
 		997B1D8D254D3698002BCC7A /* TaskData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B1D8C254D3698002BCC7A /* TaskData.swift */; };
 		997B1D8F254D3C4F002BCC7A /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B1D8E254D3C4F002BCC7A /* TaskResponse.swift */; };
-		99C5373B2553D1540056C11B /* ProfileTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C5373A2553D1540056C11B /* ProfileTableVC.swift */; };
+		99C5373B2553D1540056C11B /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C5373A2553D1540056C11B /* ProfileVC.swift */; };
 		99D5E395255CC82E005CEF61 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D5E394255CC82E005CEF61 /* APIRouter.swift */; };
 		B20B51150DA77CAB4873C552 /* Pods_TODOApp_MVP_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98924851E506198CE4F5DDB /* Pods_TODOApp_MVP_Demo.framework */; };
 		B76E56912548A24A00C13D43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76E56902548A24A00C13D43 /* AppDelegate.swift */; };
@@ -38,16 +42,20 @@
 /* Begin PBXFileReference section */
 		1AEB2AD9459B0F46849F6985 /* Pods-TODOApp-MVP-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODOApp-MVP-Demo.debug.xcconfig"; path = "Target Support Files/Pods-TODOApp-MVP-Demo/Pods-TODOApp-MVP-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		5DF97854C89E18E8B2E1A8FB /* Pods-TODOApp-MVP-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TODOApp-MVP-Demo.release.xcconfig"; path = "Target Support Files/Pods-TODOApp-MVP-Demo/Pods-TODOApp-MVP-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		9913BBAB255E84F0000A17DD /* SignUpVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVCPresenter.swift; sourceTree = "<group>"; };
+		9913BBAB255E84F0000A17DD /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		9932E6D02553488C00392AC9 /* String+Trimming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Trimming.swift"; sourceTree = "<group>"; };
 		9932E6D2255349A600392AC9 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 		9932E6D3255349A600392AC9 /* ToDoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoCell.xib; sourceTree = "<group>"; };
 		9932E6D7255358C100392AC9 /* UIView+Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loader.swift"; sourceTree = "<group>"; };
+		996C94822568C627005742C1 /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
+		996C94842568C7A9005742C1 /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
+		996C94892568EC1E005742C1 /* ToDoListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListPresenter.swift; sourceTree = "<group>"; };
+		996C948B256909B9005742C1 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		997B1D88254D207E002BCC7A /* UIViewController+ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowAlert.swift"; sourceTree = "<group>"; };
 		997B1D8A254D21D0002BCC7A /* String+ValidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ValidData.swift"; sourceTree = "<group>"; };
 		997B1D8C254D3698002BCC7A /* TaskData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskData.swift; sourceTree = "<group>"; };
 		997B1D8E254D3C4F002BCC7A /* TaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResponse.swift; sourceTree = "<group>"; };
-		99C5373A2553D1540056C11B /* ProfileTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableVC.swift; sourceTree = "<group>"; };
+		99C5373A2553D1540056C11B /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		99D5E394255CC82E005CEF61 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		B76E568D2548A24A00C13D43 /* TODOApp-MVP-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TODOApp-MVP-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76E56902548A24A00C13D43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +108,8 @@
 		9913BBA9255E8363000A17DD /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				9913BBAB255E84F0000A17DD /* SignUpVCPresenter.swift */,
+				996C94872568EBF2005742C1 /* Authentication */,
+				996C948D25690A66005742C1 /* Main */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -128,6 +137,24 @@
 			children = (
 				997B1D8C254D3698002BCC7A /* TaskData.swift */,
 				997B1D8E254D3C4F002BCC7A /* TaskResponse.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		996C94872568EBF2005742C1 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				996C94822568C627005742C1 /* SignInPresenter.swift */,
+				9913BBAB255E84F0000A17DD /* SignUpPresenter.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		996C948D25690A66005742C1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				996C94892568EC1E005742C1 /* ToDoListPresenter.swift */,
+				996C948B256909B9005742C1 /* ProfilePresenter.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -181,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				B76E56C62548BEE100C13D43 /* UserDefaultsManager.swift */,
+				996C94842568C7A9005742C1 /* ValidationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -271,7 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				B76E56942548A24A00C13D43 /* ToDoListVC.swift */,
-				99C5373A2553D1540056C11B /* ProfileTableVC.swift */,
+				99C5373A2553D1540056C11B /* ProfileVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -393,8 +421,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99C5373B2553D1540056C11B /* ProfileTableVC.swift in Sources */,
+				996C94852568C7A9005742C1 /* ValidationManager.swift in Sources */,
+				99C5373B2553D1540056C11B /* ProfileVC.swift in Sources */,
+				996C948C256909B9005742C1 /* ProfilePresenter.swift in Sources */,
 				B76E56BF2548AFA000C13D43 /* APIManager.swift in Sources */,
+				996C948A2568EC1E005742C1 /* ToDoListPresenter.swift in Sources */,
 				B76E56952548A24A00C13D43 /* ToDoListVC.swift in Sources */,
 				997B1D89254D207E002BCC7A /* UIViewController+ShowAlert.swift in Sources */,
 				99D5E395255CC82E005CEF61 /* APIRouter.swift in Sources */,
@@ -402,7 +433,7 @@
 				B76E56C52548BACC00C13D43 /* UserData.swift in Sources */,
 				997B1D8B254D21D0002BCC7A /* String+ValidData.swift in Sources */,
 				9932E6D12553488C00392AC9 /* String+Trimming.swift in Sources */,
-				9913BBAC255E84F0000A17DD /* SignUpVCPresenter.swift in Sources */,
+				9913BBAC255E84F0000A17DD /* SignUpPresenter.swift in Sources */,
 				B76E56B92548A76600C13D43 /* SignInVC.swift in Sources */,
 				B76E56BC2548A84600C13D43 /* SignUpVC.swift in Sources */,
 				997B1D8D254D3698002BCC7A /* TaskData.swift in Sources */,
@@ -411,6 +442,7 @@
 				9932E6D4255349A600392AC9 /* ToDoCell.swift in Sources */,
 				997B1D8F254D3C4F002BCC7A /* TaskResponse.swift in Sources */,
 				9932E6D8255358C100392AC9 /* UIView+Loader.swift in Sources */,
+				996C94832568C627005742C1 /* SignInPresenter.swift in Sources */,
 				B76E56C12548B0FD00C13D43 /* LoginResponse.swift in Sources */,
 				B76E56C32548B2B100C13D43 /* Constants.swift in Sources */,
 			);
