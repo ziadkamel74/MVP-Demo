@@ -11,20 +11,15 @@ import UIKit
 class SignInVC: UIViewController {
 
     // MARK:- Outlets
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet var mainView: SignInView!
     
     // MARK:- Properties
     var presenter: SignInPresenter!
     
-    // MARK:- Lifecycle methods
+    // MARK:- LifeCycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    // MARK:- UIKit Methods
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
+        mainView.setup()
     }
 
     // MARK:- Public Methods
@@ -50,7 +45,7 @@ class SignInVC: UIViewController {
     
     // MARK:- IBAction Methods
     @IBAction func loginBtnPressed(_ sender: UIButton) {
-        presenter.tryToLogin(with: emailTextField.text, password: passwordTextField.text)
+        presenter.tryToLogin(with: mainView.emailTextField.text, password: mainView.passwordTextField.text)
     }
     
     @IBAction func signUpBtnPressed(_ sender: UIButton) {

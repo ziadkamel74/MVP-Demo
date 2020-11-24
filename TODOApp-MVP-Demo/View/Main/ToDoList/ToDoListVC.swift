@@ -11,14 +11,15 @@ import UIKit
 class ToDoListVC: UIViewController {
     
     // MARK:- Outlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var mainView: ToDoListView!
     
     // MARK:- Properties
     var presenter: ToDoListPresenter!
     
-    // MARK:- Lifecycle Methods
+    // MARK:- LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainView.setup()
         setupViews()
         presenter.getAllTasks()
     }
@@ -40,25 +41,8 @@ class ToDoListVC: UIViewController {
     
     func reloadTableView() {
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.mainView.tableView.reloadData()
         }
-    }
-    
-    func goToProfileVC() {
-        let profileTableVC = ProfileVC.create()
-        navigationController?.pushViewController(profileTableVC, animated: true)
-    }
-    
-    func displayNewTodoAlert() {
-        let alert = UIAlertController(title: "Add New Task", message: nil, preferredStyle: .alert)
-        alert.addTextField { (textField) in
-            textField.placeholder = "Description"
-        }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self] (action) in
-            self?.presenter.newToDo(description: alert.textFields?.first?.text)
-        }))
-        present(alert, animated: true)
     }
     
     func displayDeleteAlert(with taskID: String) {
@@ -92,18 +76,30 @@ extension ToDoListVC {
     }
     
     private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: Cells.toDoCell, bundle: nil), forCellReuseIdentifier: Cells.toDoCell)
+        mainView.tableView.delegate = self
+        mainView.tableView.dataSource = self
     }
     
     // MARK:- @Objc Methods
     @objc private func plusButtonTapped() {
-        presenter.plusButtonTapped()
+        displayNewTodoAlert()
+    }
+    
+    private func displayNewTodoAlert() {
+        let alert = UIAlertController(title: "Add New Task", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Description"
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self] (action) in
+            self?.presenter.newToDo(description: alert.textFields?.first?.text)
+        }))
+        present(alert, animated: true)
     }
     
     @objc private func profileButtonTapped() {
-        presenter.profileButtonTapped()
+        let profileTableVC = ProfileVC.create()
+        navigationController?.pushViewController(profileTableVC, animated: true)
     }
 }
 
@@ -135,8 +131,8 @@ extension ToDoListVC: UITableViewDelegate, UITableViewDataSource {
 // MARK:- Task Deletion Delegate
 extension ToDoListVC: DeleteTask {
     func deleteTapped(sender: UIButton) {
-        let hitPoint = sender.convert(CGPoint.zero, to: tableView)
-        guard let indexPath = tableView.indexPathForRow(at: hitPoint) else { return }
+        let hitPoint = sender.convert(CGPoint.zero, to: mainView.tableView)
+        guard let indexPath = mainView.tableView.indexPathForRow(at: hitPoint) else { return }
         presenter.deleteTapped(with: indexPath)
     }
 }

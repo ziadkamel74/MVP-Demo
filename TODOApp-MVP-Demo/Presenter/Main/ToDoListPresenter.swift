@@ -18,7 +18,7 @@ class ToDoListPresenter {
         self.view = view
     }
     
-    // MARK:- Internal Methods
+    // MARK:- Public Methods
     func getAllTasks() {
         view?.showLoader()
         APIManager.getAllTasks { [weak self] (response) in
@@ -31,14 +31,6 @@ class ToDoListPresenter {
             }
             self?.view?.hideLoader()
         }
-    }
-    
-    func profileButtonTapped() {
-        view?.goToProfileVC()
-    }
-    
-    func plusButtonTapped() {
-        view?.displayNewTodoAlert()
     }
     
     func newToDo(description: String?) {

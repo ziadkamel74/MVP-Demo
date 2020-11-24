@@ -6,7 +6,7 @@
 //  Copyright © 2020 IDEAEG. All rights reserved.
 //
 
-import Foundation
+import UIKit // special case require UIKit
 
 class ProfilePresenter {
     // MARK:- Properties
@@ -17,7 +17,7 @@ class ProfilePresenter {
         self.view = view
     }
     
-    // MARK:- Internal Methods
+    // MARK:- Public Methods
     func getUserData() {
         self.view?.showLoader()
         APIManager.getUserData { [weak self] (response) in
@@ -75,14 +75,6 @@ class ProfilePresenter {
         }
     }
     
-    func imageBtnTapped() {
-        view?.displayImageAlert()
-    }
-    
-    func presentImagePicker() {
-        view?.presentImagePicker()
-    }
-    
     func uploadImage(with data: Data?) {
         guard let imageData = data else { return }
         view?.showLoader()
@@ -107,10 +99,6 @@ class ProfilePresenter {
             }
             self?.view?.hideLoader()
         }
-    }
-    
-    func editInfoTapped() {
-        view?.displayEditAlert()
     }
     
     func updateUserInfo(name: String?, age: String?, email: String?) {
@@ -174,7 +162,11 @@ extension ProfilePresenter {
             case .failure:
                 self?.view?.showImageLabel()
             case .success(let data):
-                self?.view?.setImage(with: data)
+                // special case
+                if let _ = UIImage(data: data) {
+                    self?.view?.setImage(with: data)
+                    self?.view?.hideImageLabel()
+                }
             }
             self?.view?.hideLoader()
         }

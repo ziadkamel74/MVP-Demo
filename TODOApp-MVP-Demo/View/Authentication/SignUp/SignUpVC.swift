@@ -11,34 +11,27 @@ import UIKit
 class SignUpVC: UIViewController {
     
     // MARK:- Outlets
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet var mainView: SignUpView!
     
     // MARK:- Properties
     var presenter: SignUpPresenter!
     
-    // MARK:- Lifecycle methods
+    // MARK:- LifeCycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = SignUpPresenter(view: self)
+        mainView.setup()
     }
-    
-    // MARK:- UIKit Methods
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }    
 
     // MARK:- Public Methods
     class func create() -> SignUpVC {
         let signUpVC: SignUpVC = UIViewController.create(storyboardName: Storyboards.authentication, identifier: ViewControllers.signUpVC)
+        signUpVC.presenter = SignUpPresenter(view: signUpVC)
         return signUpVC
     }
     
     // MARK:- IBAction Methods
     @IBAction func registerBtnPressed(_ sender: UIButton) {
-        presenter.tryToRegister(name: nameTextField.text, email: emailTextField.text, password: passwordTextField.text, age: ageTextField.text)
+        presenter.tryToRegister(name: mainView.nameTextField.text, email: mainView.emailTextField.text, password: mainView.passwordTextField.text, age: mainView.ageTextField.text)
     }
 }
 
@@ -52,7 +45,7 @@ extension SignUpVC {
 }
 
 // MARK:- Presenter delegate
-extension SignUpVC: SignUpView {
+extension SignUpVC: SignUp {
     func showLoader() {
         self.view.showLoader()
     }

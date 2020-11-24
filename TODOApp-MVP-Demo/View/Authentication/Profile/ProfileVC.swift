@@ -34,7 +34,6 @@ class ProfileVC: UITableViewController {
         return profileVC
     }
     
-    // MARK:- Internal Methods
     func switchToAuthState() {
         let signInVC = SignInVC.create()
         let navigationController = UINavigationController(rootViewController: signInVC)
@@ -58,10 +57,7 @@ class ProfileVC: UITableViewController {
     }
     
     func setImage(with data: Data) {
-        if let image = UIImage(data: data) {
-            userImageBtn.setImage(image, for: .normal)
-            hideImageLabel()
-        }
+        userImageBtn.setImage(UIImage(data: data), for: .normal)
     }
     
     func removeImage() {
@@ -76,17 +72,6 @@ class ProfileVC: UITableViewController {
     
     func configureImageLabel(with initials: String) {
         imageLabel.text = initials
-    }
-    
-    func presentImagePicker() {
-        // Picker instance
-        let picker = UIImagePickerController()
-        // Allow image cropping
-        picker.allowsEditing = true
-        // Setting delegate to self, delegation design pattern require conforming protocols
-        picker.delegate = self
-        // Presenting the image picker
-        self.present(picker, animated: true, completion: nil)
     }
     
     func displayLogOutAlert() {
@@ -110,8 +95,50 @@ class ProfileVC: UITableViewController {
         
         present(deleteAccAlert, animated: true)
     }
-        
-    func displayEditAlert() {
+    
+}
+
+extension ProfileVC {
+    // MARK:- Private Methods
+    private func setupViews() {
+        setupNavBar()
+        setupImageButton()
+    }
+    
+    private func setupImageButton() {
+        userImageBtn.addTarget(self, action: #selector(didTapImageBtn), for: .touchUpInside)
+        userImageBtn.layer.cornerRadius = userImageBtn.frame.width / 2
+        userImageBtn.layer.masksToBounds = true
+    }
+    
+    private func setupNavBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit Info", style: .done, target: self, action: #selector(didTapEditInfo))
+    }
+    
+    private func displayImageAlert() {
+        let photoAlert = UIAlertController(title: "Profile Picture", message: nil, preferredStyle: .actionSheet)
+        photoAlert.addAction(UIAlertAction(title: "Choose from Photo Library", style: .default, handler: { [weak self] (action) in
+            self?.presentImagePicker()
+        }))
+        photoAlert.addAction(UIAlertAction(title: "Delete Picture", style: .destructive, handler: { [weak self] (action) in
+            self?.presenter.deleteUserImage()
+        }))
+        photoAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(photoAlert, animated: true)
+    }
+    
+    private func presentImagePicker() {
+        // Picker instance
+        let picker = UIImagePickerController()
+        // Allow image cropping
+        picker.allowsEditing = true
+        // Setting delegate to self, delegation design pattern require conforming protocols
+        picker.delegate = self
+        // Presenting the image picker
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+    private func displayEditAlert() {
         let editAlert = UIAlertController(title: "Edit Info", message: nil, preferredStyle: .alert)
         editAlert.addTextField { (textField) in
             textField.placeholder = "Name..."
@@ -135,44 +162,13 @@ class ProfileVC: UITableViewController {
         present(editAlert, animated: true)
     }
     
-    func displayImageAlert() {
-        let photoAlert = UIAlertController(title: "Profile Picture", message: nil, preferredStyle: .actionSheet)
-        photoAlert.addAction(UIAlertAction(title: "Choose from Photo Library", style: .default, handler: { [weak self] (action) in
-            self?.presenter.presentImagePicker()
-        }))
-        photoAlert.addAction(UIAlertAction(title: "Delete Picture", style: .destructive, handler: { [weak self] (action) in
-            self?.presenter.deleteUserImage()
-        }))
-        photoAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(photoAlert, animated: true)
-    }
-    
-}
-
-extension ProfileVC {
-    // MARK:- Private Methods
-    private func setupViews() {
-        setupNavBar()
-        setupImageButton()
-    }
-    
-    private func setupImageButton() {
-        userImageBtn.addTarget(self, action: #selector(didTapImageBtn), for: .touchUpInside)
-        userImageBtn.layer.cornerRadius = userImageBtn.frame.width / 2
-        userImageBtn.layer.masksToBounds = true
-    }
-    
-    private func setupNavBar() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit Info", style: .done, target: self, action: #selector(didTapEditInfo))
-    }
-    
     // MARK:- objc Methods
     @objc private func didTapImageBtn() {
-        presenter.imageBtnTapped()
+        displayImageAlert()
     }
     
     @objc private func didTapEditInfo() {
-        presenter.editInfoTapped()
+        displayEditAlert()
     }
 }
 

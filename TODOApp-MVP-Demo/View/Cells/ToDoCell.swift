@@ -20,7 +20,7 @@ class ToDoCell: UITableViewCell {
     // MARK:- Properties
     weak var deletion: DeleteTask?
     
-    // MARK:- Internal Methods
+    // MARK:- Public Methods
     func configure(description: String) {
         descriptionLabel.text = description
     }

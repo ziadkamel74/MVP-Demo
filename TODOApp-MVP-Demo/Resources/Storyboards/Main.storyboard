@@ -11,11 +11,11 @@
         <scene sceneID="6QD-ah-ejZ">
             <objects>
                 <viewController storyboardIdentifier="ToDoListVC" id="xko-eu-rsM" customClass="ToDoListVC" customModule="TODOApp_MVP_Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dah-yt-EtK">
+                    <view key="view" contentMode="scaleToFill" id="dah-yt-EtK" customClass="ToDoListView" customModule="TODOApp_MVP_Demo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4eF-kR-dRA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4eF-kR-dRA">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
@@ -28,9 +28,12 @@
                             <constraint firstItem="4eF-kR-dRA" firstAttribute="top" secondItem="ze1-gk-Kar" secondAttribute="top" id="zud-bU-SBx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ze1-gk-Kar"/>
+                        <connections>
+                            <outlet property="tableView" destination="4eF-kR-dRA" id="mEj-Ko-iKD"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="4eF-kR-dRA" id="zli-GT-Dp7"/>
+                        <outlet property="mainView" destination="dah-yt-EtK" id="H66-Z6-Rwt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25t-os-KyK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
